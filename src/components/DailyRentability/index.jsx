@@ -1,3 +1,4 @@
+import "./DailyRentability.css"
 const DailyRentability = () =>{
     return (
         <div className="daily-rentability">
