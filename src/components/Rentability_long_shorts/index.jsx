@@ -1,5 +1,14 @@
 import "./Rentability_long_shorts.css";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const Rentability_long_shorts = () => {
   const data = [
@@ -61,12 +70,21 @@ const Rentability_long_shorts = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
+          <XAxis dataKey="name" tick={{ fill: "#fff", fontSize: 12 }} />
+          <YAxis tick={{ fill: "#fff", fontSize: 12 }} />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#000", color: "#fff" }}
+            labelStyle={{ color: "#fff" }}
+            itemStyle={{ color: "#fff" }}
+          />
           <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="red"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="green" />
         </LineChart>
       </ResponsiveContainer>
     </div>

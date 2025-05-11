@@ -49,8 +49,8 @@ const RentSharesCrypto = () => {
   return (
     <div className="rent">
       <ResponsiveContainer>
-        <BarChart width={140} height={30} data={data}>
-          <Bar dataKey="uv" fill="#8884d8" />
+        <BarChart width={120} height={10} data={data}>
+          <Bar dataKey="uv" fill="#999999" />
         </BarChart>
       </ResponsiveContainer>
     </div>

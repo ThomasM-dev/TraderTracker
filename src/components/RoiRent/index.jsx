@@ -49,7 +49,7 @@ const RoiRent = () => {
     <div className="roi">
       <ResponsiveContainer>
         <LineChart width={300} height={100} data={data}>
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+          <Line type="monotone" dataKey="pv" stroke="#999999" strokeWidth={2} />
         </LineChart>
       </ResponsiveContainer>
     </div>
