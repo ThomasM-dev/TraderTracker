@@ -31,11 +31,11 @@ const DailyRentability = () => {
           <XAxis dataKey="name" tick={{ fill: "#fff", fontSize: 12 }} />
           <YAxis tick={{ fill: "#fff", fontSize: 12 }} />
           <Tooltip
-            contentStyle={{ backgroundColor: "#000", color: "#fff" }}
+            contentStyle={{ backgroundColor: "#000", color: "#0149a1" }}
             labelStyle={{ color: "#fff" }}
             itemStyle={{ color: "#fff" }}
           />
-          <Area type="monotone" dataKey="uv" stroke="#fff" fill="#fff" />
+          <Area type="monotone" dataKey="uv" stroke="#0149a1" fill="#0149a1" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

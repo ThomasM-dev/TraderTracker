@@ -81,10 +81,10 @@ const Rentability_long_shorts = () => {
           <Line
             type="monotone"
             dataKey="pv"
-            stroke="red"
+            stroke="#aa191c"
             activeDot={{ r: 8 }}
           />
-          <Line type="monotone" dataKey="uv" stroke="green" />
+          <Line type="monotone" dataKey="uv" stroke="#0b8d42" />
         </LineChart>
       </ResponsiveContainer>
     </div>

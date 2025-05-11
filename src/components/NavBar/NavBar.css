@@ -20,7 +20,7 @@
   letter-spacing: 0.05em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-in-out;
-  border: white 1px solid;
+  border: #04466e 1px solid;
 }
 
 .nav:hover {
