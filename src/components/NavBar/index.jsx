@@ -1,18 +1,17 @@
 import "./NavBar.css";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
-  // State to track the active link
   const [activeLink, setActiveLink] = useState(null);
+  const location = useLocation();
 
-  // Navigation links data
   const navLinks = [
-    { name: "Rentabilidad", href: "#rentabilidad" },
-    { name: "Recursos", href: "#recursos" },
-    { name: "Herramientas", href: "#herramientas" },
+    { name: "Home", path: "/" },
+    { name: "Operaciones", path: "/operaciones" },
+    { name: "Registrar", path: "/registrar" },
   ];
 
-  // Handle link click to set active state
   const handleLinkClick = (index) => {
     setActiveLink(index);
   };
@@ -22,14 +21,22 @@ const NavBar = () => {
       <ul className="nav">
         {navLinks.map((link, index) => (
           <li key={index}>
-            <a
-              href={link.href}
-              className={activeLink === index ? "nav-link active" : "nav-link"}
+            <Link
+              to={link.path}
+              className={
+                location.pathname === link.path || activeLink === index
+                  ? "nav-link active"
+                  : "nav-link"
+              }
               onClick={() => handleLinkClick(index)}
-              aria-current={activeLink === index ? "page" : undefined}
+              aria-current={
+                location.pathname === link.path || activeLink === index
+                  ? "page"
+                  : undefined
+              }
             >
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

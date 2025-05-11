@@ -1,6 +1,6 @@
 import { Row, Table, Container } from "react-bootstrap";
-import "./Operations.css"
 import { useSelector } from "react-redux";
+import "./Operations.css"
 
 const Operations = () => {
     const operations = useSelector((state) => state.operations);    
