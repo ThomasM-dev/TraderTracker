@@ -1,21 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  value: [],
-}
-
-export const operationsSlice = createSlice({
+const operationsSlice = createSlice({
   name: 'operations',
-  initialState,
+  initialState: [],
   reducers: {
-    addOperation: (state, action) => {
-      state.value.push(action.payload)
-    },
-    updateOperation: (state, action) => {
-
+    setsOperations: (state, action) => {
+      return action.payload;
     },
   },
-})
+});
 
-export const { addOperation, updateOperation } = operationsSlice.actions
-export default operationsSlice
+export const { setsOperations } = operationsSlice.actions;
+export default operationsSlice;

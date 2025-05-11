@@ -1,6 +1,5 @@
-// src/features/firebase/firebaseApi.js
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react'
-import { db } from '../../firebase'
+import { db } from './firebase'
 import { ref, get, push, set } from 'firebase/database'
 
 export const firebaseApi = createApi({
@@ -10,7 +9,7 @@ export const firebaseApi = createApi({
     getOperations: builder.query({
       async queryFn() {
         try {
-          const snapshot = await get(ref(db, 'operations'))
+          const snapshot = await get(ref(db, 'operaciones'))
           const data = snapshot.val()
           const formatted = data
             ? Object.entries(data).map(([id, value]) => ({ id, ...value }))
@@ -24,7 +23,7 @@ export const firebaseApi = createApi({
     addOperation: builder.mutation({
       async queryFn(operation) {
         try {
-          const newRef = push(ref(db, 'operations'))
+          const newRef = push(ref(db, 'operaciones'))
           await set(newRef, operation)
           return { data: { id: newRef.key, ...operation } }
         } catch (err) {
