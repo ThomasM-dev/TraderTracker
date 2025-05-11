@@ -8,8 +8,23 @@ import RentabilityLongShorts from "./components/Rentability_long_shorts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Operations from "./screens/Operations";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {useGetOperationsQuery} from "./fetching/firebaseApi";
+import {setsOperations} from "./stateGlobal/operationsSlice"
 
 function App() {
+  const { data } = useGetOperationsQuery();
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+    if (data) {
+        dispatch(setsOperations(data))        
+    }
+  }, [dispatch, data]);
+
+
+
   return (
     <>
       <NavBar />
