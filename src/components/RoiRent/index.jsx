@@ -1,5 +1,6 @@
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import "./RoiRent.css";
+import { useSelector } from "react-redux";
 const RoiRent = () => {
   const data = [
     {
@@ -45,10 +46,16 @@ const RoiRent = () => {
       amt: 2100,
     },
   ];
+  const inversionInicial= 65
+  const operationsState = useSelector((state) => state.operations || []);
+  const totalTp = operationsState.reduce((acc, operation) => {
+    return acc + Number(operation.ganancia || 0);
+  }, 0);
+    const ROI = (totalTp / inversionInicial) * 100;
   return (
-    <div className="roi">
+    <div className="roi mt-5">
       <ResponsiveContainer>
-        <p className="roiPorcentaje">ROI: </p>
+        <p className="roiPorcentaje">ROI: {ROI.toFixed(2)}%</p>
         <LineChart width={300} height={100} data={data}>
           <Line type="monotone" dataKey="pv" stroke="#0fbc4f" strokeWidth={2} />
         </LineChart>

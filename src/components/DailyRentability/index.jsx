@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import "./DailyRentability.css";
 import {
   AreaChart,
@@ -21,9 +20,10 @@ const data = [
 ];
 
 const DailyRentability = () => {
-  const operationsState= useSelector((state) => state.operations)  
+
+  
   return (
-    <div className="daily-rentability">
+    <div className="daily-rentability mt-4">
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}

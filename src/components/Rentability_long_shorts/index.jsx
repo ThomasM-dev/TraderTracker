@@ -56,7 +56,7 @@ const Rentability_long_shorts = () => {
     },
   ];
   return (
-    <div className="rentability_long_shorts">
+    <div className="rentability_long_shorts mt-5">
       <ResponsiveContainer>
         <LineChart
           width={500}
