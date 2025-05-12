@@ -1,6 +1,5 @@
 import { Row, Table, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import "./Operations.css"
 
 const Operations = () => {
     const operations = useSelector((state) => state.operations);    
@@ -13,23 +12,23 @@ const Operations = () => {
         <Table striped bordered hover className="bg-black">
           <thead className="border-0">
             <tr className="style-table">
-              <th>Activo</th>
-              <th>Fecha</th>
-              <th>Tipo</th>
-              <th>Cantidad</th>
-              <th>Ganancia/Pérdida</th>
-              <th>ROI (%)</th>
+              <th className="bg-black text-white border-none">Activo</th>
+              <th className="bg-black text-white border-none">Fecha</th>
+              <th className="bg-black text-white border-none">Tipo</th>
+              <th className="bg-black text-white border-none">Cantidad</th>
+              <th className="bg-black text-white border-none">Ganancia/Pérdida</th>
+              <th className="bg-black text-white border-none">ROI (%)</th>
             </tr>
           </thead>
           <tbody className="style-table border-0">
             {operations.map((operation) => (
-              <tr key={operation.id}>
-                <td>{operation.instrumento}</td>
-                <td>{operation.fecha}</td>
-                <td>{operation.tipo || operation.posición || operation.posicion}</td>
-                <td>{operation.cantidad || operation.tamaño}</td>
-                <td>{operation.variacion || operation.variación}%</td>
-                <td>{operation.ganancia}</td>
+              <tr key={operation.id} className="border-0">
+                <td className="bg-black text-white border-0">{operation.instrumento}</td>
+                <td className="bg-black text-white border-0">{operation.fecha}</td>
+                <td className="bg-black text-white border-0">{operation.tipo || operation.posición || operation.posicion}</td>
+                <td className="bg-black text-white border-0">{operation.cantidad || operation.tamaño}</td>
+                <td className="bg-black text-white border-0">{operation.variacion || operation.variación}%</td>
+                <td className="bg-black text-white border-0">{operation.ganancia}</td>
               </tr>
             ))}
           </tbody>

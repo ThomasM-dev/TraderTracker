@@ -4,10 +4,13 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useGetOperationsQuery } from "./fetching/firebaseApi";
 import { setsOperations } from "./stateGlobal/operationsSlice";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import Home from "./screens/Home";
 import { Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+
+
 
 function App() {
   const { data } = useGetOperationsQuery();
