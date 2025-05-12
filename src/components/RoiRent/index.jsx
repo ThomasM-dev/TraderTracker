@@ -32,25 +32,32 @@ const RoiRent = () => {
       <p className="roiPorcentaje">ROI: {ROI.toFixed(2)}%</p>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
-          data={chartData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip 
-           contentStyle={{ backgroundColor: "#000", color: "#fff" }}
-            labelStyle={{ color: "#fff" }}
-            itemStyle={{ color: "#fff" }}
-          />
-          <Legend fill='#000'/>
-          <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="ganancia" fill="#82ca9d" stroke="#0fbc4f" />
-        </BarChart>
+  data={chartData}
+  margin={{
+    top: 5,
+    right: 30,
+    left: 20,
+    bottom: 5,
+  }}
+>
+  <XAxis dataKey="name" />
+  <YAxis />
+  <Tooltip 
+    contentStyle={{ backgroundColor: "#000", color: "#fff" }}
+    labelStyle={{ color: "#fff" }}
+    itemStyle={{ color: "#fff" }}
+  />
+  <Legend fill='#000'/>
+  <ReferenceLine y={0} stroke="#000" />
+  <Bar dataKey="ganancia">
+    {chartData.map((entry, index) => (
+      <Cell
+        key={`cell-${index}`}
+        fill={entry.ganancia < 0 ? '#ff4d4f' : '#82ca9d'}
+      />
+    ))}
+  </Bar>
+</BarChart>
       </ResponsiveContainer>
     </div>
   );
