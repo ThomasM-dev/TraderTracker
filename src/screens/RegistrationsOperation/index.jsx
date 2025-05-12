@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./RegistrationsOperation.css"
 
 const RegistrationsOperation = () => {
   const [formData, setFormData] = useState({
@@ -26,8 +27,8 @@ const RegistrationsOperation = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Registrar Operación</h2>
-      <form onSubmit={handleSubmit} className="row g-3">
+      <h2 className="mb-4 text-center text-white">Registrar Operación</h2>
+      <form onSubmit={handleSubmit} className="row g-3 styles-inputs">
         <div className="col-md-6">
           <label className="form-label">Activo</label>
           <input

@@ -38,7 +38,7 @@ const Operations = () => {
                   {operation.cantidad || operation.tamaño}
                 </td>
                 <td className="bg-black text-white border-0">
-                  {operation.ganancia}
+                  ${operation.ganancia} USD
                 </td>
                 <td className="bg-black text-white border-0">
                   {operation.variacion || operation.variación}%
