@@ -56,7 +56,7 @@ const RoiRent = () => {
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={entry.ganancia < 0 ? "red" : "#0fbc4f"}
+                fill={entry.ganancia < 0 ? "#838383" : "white"}
               />
             ))}
           </Bar>
