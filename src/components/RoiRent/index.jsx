@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   ReferenceLine,
   ResponsiveContainer,
-} from 'recharts';
-import { useSelector } from 'react-redux';
-import "./RoiRent.css"
+} from "recharts";
+import { useSelector } from "react-redux";
+import "./RoiRent.css";
+import { Cell } from "recharts";
 
 const RoiRent = () => {
   const inversionInicial = 65;
@@ -19,12 +19,15 @@ const RoiRent = () => {
 
   // Transformar las operaciones para que solo se muestren las ganancias
   const chartData = operationsState.map((operation, index) => ({
-    name: `Operación ${index + 1}`,  // Nombre de la operación (número)
-    ganancia: Number(operation.ganancia || 0),  // Ganancia de la operación
+    name: `Operación ${index + 1}`, // Nombre de la operación (número)
+    ganancia: Number(operation.ganancia || 0), // Ganancia de la operación
   }));
 
   // Calcular el total de ganancias para el ROI
-  const totalGanancia = operationsState.reduce((acc, operation) => acc + Number(operation.ganancia || 0), 0);
+  const totalGanancia = operationsState.reduce(
+    (acc, operation) => acc + Number(operation.ganancia || 0),
+    0
+  );
   const ROI = (totalGanancia / inversionInicial) * 100;
 
   return (
@@ -32,32 +35,32 @@ const RoiRent = () => {
       <p className="roiPorcentaje">ROI: {ROI.toFixed(2)}%</p>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
-  data={chartData}
-  margin={{
-    top: 5,
-    right: 30,
-    left: 20,
-    bottom: 5,
-  }}
->
-  <XAxis dataKey="name" />
-  <YAxis />
-  <Tooltip 
-    contentStyle={{ backgroundColor: "#000", color: "#fff" }}
-    labelStyle={{ color: "#fff" }}
-    itemStyle={{ color: "#fff" }}
-  />
-  <Legend fill='#000'/>
-  <ReferenceLine y={0} stroke="#000" />
-  <Bar dataKey="ganancia">
-    {chartData.map((entry, index) => (
-      <Cell
-        key={`cell-${index}`}
-        fill={entry.ganancia < 0 ? '#ff4d4f' : '#82ca9d'}
-      />
-    ))}
-  </Bar>
-</BarChart>
+          data={chartData}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#000", color: "#fff" }}
+            labelStyle={{ color: "#fff" }}
+            itemStyle={{ color: "#fff" }}
+          />
+          <Legend fill="#000" />
+          <ReferenceLine y={0} stroke="#000" />
+          <Bar dataKey="ganancia">
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={entry.ganancia < 0 ? "red" : "#0fbc4f"}
+              />
+            ))}
+          </Bar>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );

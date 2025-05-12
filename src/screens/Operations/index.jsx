@@ -26,7 +26,7 @@ const Operations = () => {
             {operations.map((operation) => (
               <tr key={operation.id} className="border-0">
                 <td className="bg-black text-white border-0">
-                  {operation.instrumento}
+                  {operation.instrumento || operation.activo}
                 </td>
                 <td className="bg-black text-white border-0">
                   {operation.fecha}
@@ -41,7 +41,7 @@ const Operations = () => {
                   ${operation.ganancia} USD
                 </td>
                 <td className="bg-black text-white border-0">
-                  {operation.variacion || operation.variación}%
+                  {operation.variacion || operation.variación || operation.roi}%
                 </td>
               </tr>
             ))}

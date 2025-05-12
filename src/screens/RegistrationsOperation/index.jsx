@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./RegistrationsOperation.css"
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./RegistrationsOperation.css";
+import { useAddOperationMutation } from "../../fetching/firebaseApi";
+import { useDispatch } from "react-redux";
 
 const RegistrationsOperation = () => {
+  const dispatch = useDispatch();
+  const [addOperation, { isLoading, isSuccess, isError, error }] =
+    useAddOperationMutation();
   const [formData, setFormData] = useState({
-    activo: '',
-    fecha: '',
-    tipo: 'Largo',
-    cantidad: '',
-    ganancia: '',
-    roi: ''
+    activo: "",
+    fecha: "",
+    tipo: "Largo",
+    cantidad: "",
+    ganancia: "",
+    roi: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Datos enviados:', formData);
-    // Aquí puedes enviar los datos a una API o guardarlos en el estado general
+    addOperation(formData);
+    setFormData({
+      activo: "",
+      fecha: "",
+      tipo: "Largo",
+      cantidad: "",
+      ganancia: "",
+      roi: "",
+    });
   };
 
   return (
