@@ -1,8 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
 import DailyRentabiliy from "../../components/DailyRentability"
-import RentSharesCrypto  from "../../components/RentSharesCrypto"
 import RentabilityLongShorts from "../../components/Rentability_long_shorts"
 import RoiRent from "../../components/RoiRent"
+import SharesCryptoRent from "../../components/SharesCryptoRent";
+
 const Home = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const Home = () => {
             <DailyRentabiliy />
           </Col>
           <Col md={6}>
-            <RentSharesCrypto />
+          <SharesCryptoRent/>
           </Col>
         </Row>
         <Row className="m-4">

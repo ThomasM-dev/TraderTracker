@@ -1,8 +1,7 @@
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import "./Rent_Shares_Crypto.css";
 
-const RentSharesCrypto = () => {
- const data = [
+const SharesCryptoRent = () => {
+    const data = [
   {
     name: 'Page A',
     uv: 4000,
@@ -46,11 +45,8 @@ const RentSharesCrypto = () => {
     amt: 2100,
   },
 ];
-
-
   return (
-    <div className="mt-5">
-      <ResponsiveContainer width="100%" height="100%">
+     <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -71,8 +67,7 @@ const RentSharesCrypto = () => {
           <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
         </BarChart>
       </ResponsiveContainer>
-    </div>
   );
 };
 
-export default RentSharesCrypto;
+export default SharesCryptoRent;
