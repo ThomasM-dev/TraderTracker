@@ -8,8 +8,7 @@ import Home from "./screens/Home";
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
-
+import RegistrationsOperation from "./screens/RegistrationsOperation";
 
 
 function App() {
@@ -28,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/operaciones" element={<Operations />} />
+        <Route path="registrar" element={<RegistrationsOperation/>}/>
       </Routes>
     </>
   );
