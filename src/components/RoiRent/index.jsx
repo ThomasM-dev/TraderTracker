@@ -17,13 +17,13 @@ const RoiRent = () => {
   const inversionInicial = 65;
   const operationsState = useSelector((state) => state.operations || []);
 
-  // Transformar las operaciones para que solo se muestren las ganancias
+  
   const chartData = operationsState.map((operation, index) => ({
-    name: `Operación ${index + 1}`, // Nombre de la operación (número)
-    ganancia: Number(operation.ganancia || 0), // Ganancia de la operación
+    name: `Operación ${index + 1}`, 
+    ganancia: Number(operation.ganancia || 0), 
   }));
 
-  // Calcular el total de ganancias para el ROI
+  
   const totalGanancia = operationsState.reduce(
     (acc, operation) => acc + Number(operation.ganancia || 0),
     0

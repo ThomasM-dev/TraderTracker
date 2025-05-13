@@ -1,5 +1,10 @@
 .containerRent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 45%;
+    margin: auto;
+}
+
+@media (max-width: 678px) {
+  .containerRent {
+    width: 100%;
+  }
 }

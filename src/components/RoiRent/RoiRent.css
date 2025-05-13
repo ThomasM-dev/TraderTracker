@@ -1,6 +1,7 @@
 .roi {
   color: white;
   height: 40vh;
+  width: 100%;
 }
 
 .roiPorcentaje {
@@ -15,4 +16,10 @@
   font-family: 'Poppins', sans-serif;
   width: fit-content;
   margin-left: auto;
+}
+
+@media (max-width: 576px) {
+  .roi {
+    width: 100%;
+  }
 }

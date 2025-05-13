@@ -31,17 +31,17 @@ const Rent_Long_Shorts = () => {
   const chartData = [
     {
       name: "Long",
-      rentabilidad: totalLong,
+      Rentabilidad: totalLong,
     },
     {
       name: "Short",
-      rentabilidad: totalShort,
+      Rentabilidad: totalShort,
     },
   ];
 
   return (
     <div className="containerRent">
-      <ResponsiveContainer width="55%" height={300}>
+      <ResponsiveContainer width="100%" height={300}>
         <h3 className="text-white text-center">
           Rent Longs y Shorts
         </h3>
@@ -59,11 +59,11 @@ const Rent_Long_Shorts = () => {
           />
           <Legend />
           <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="rentabilidad">
+          <Bar dataKey="Rentabilidad" fill="#fff">
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={entry.rentabilidad < 0 ? "#838383" : "white"}
+                fill={entry.Rentabilidad < 0 ? "#838383" : "white"}
               />
             ))}
           </Bar>
