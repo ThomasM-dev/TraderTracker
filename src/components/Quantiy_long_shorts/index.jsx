@@ -37,7 +37,7 @@ const Quantiy_long_shorts = () => {
   const COLORS = ["white", "#838383"];
 
   return (
-    <div className="rentability_long_shorts mt-5 ">
+    <div className="rentability_long_shorts mt-3">
       <h3 className="text-center mb-4">Cantidad de operaciones</h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>

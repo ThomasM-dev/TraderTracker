@@ -40,6 +40,7 @@ const RegistrationsOperation = () => {
       ganancia: "",
       roi: "",
     });
+    window.location.reload();
   };
 
   return (
