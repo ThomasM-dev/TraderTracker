@@ -40,7 +40,7 @@ const Rent_Long_Shorts = () => {
   ];
 
   return (
-    <div className="containerRent mt-3">
+    <div className="containerRent mb-4">
       <ResponsiveContainer width="100%" height={300}>
         <h3 className="text-white text-center">
           Rent Longs y Shorts

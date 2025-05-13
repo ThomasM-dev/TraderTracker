@@ -31,7 +31,7 @@ const RoiRent = () => {
   const ROI = (totalGanancia / inversionInicial) * 100;
 
   return (
-    <div className="roi mt-5 mb-5">
+    <div className="roi mt-5 mb-3">
       <p className="roiPorcentaje">ROI: {ROI.toFixed(2)}%</p>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart

@@ -23,7 +23,7 @@ const DailyRentability = () => {
 
   
   return (
-    <div className="daily-rentability mt-4">
+    <div className="daily-rentability mt-3">
       <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           data={data}
