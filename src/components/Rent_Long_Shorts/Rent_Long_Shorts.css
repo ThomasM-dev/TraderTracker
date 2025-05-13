@@ -1,5 +1,6 @@
 .containerRent {
-    width: 45%;
+  width: 40%;
+  margin: auto;
 }
 
 @media (max-width: 678px) {
