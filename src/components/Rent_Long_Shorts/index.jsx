@@ -41,9 +41,9 @@ const Rent_Long_Shorts = () => {
 
   return (
     <div className="containerRent">
-      <ResponsiveContainer width="45%" height={300}>
+      <ResponsiveContainer width="55%" height={300}>
         <h3 className="text-white text-center">
-          Rentabilidad de operaciones Long y Short
+          Rent Longs y Shorts
         </h3>
 
         <BarChart

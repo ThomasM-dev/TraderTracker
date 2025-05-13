@@ -3,9 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./RegistrationsOperation.css";
 import { useAddOperationMutation } from "../../fetching/firebaseApi";
 import { useDispatch } from "react-redux";
+import { setsOperations } from "../../stateGlobal/operationsSlice";
 
 const RegistrationsOperation = () => {
   const dispatch = useDispatch();
+  const storedOps = JSON.parse(localStorage.getItem("operations")) || [];
   const [addOperation, { isLoading, isSuccess, isError, error }] =
     useAddOperationMutation();
   const [formData, setFormData] = useState({
@@ -27,6 +29,9 @@ const RegistrationsOperation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addOperation(formData);
+    dispatch(setsOperations(formData));
+    const updatedOps = [...storedOps, formData];
+    localStorage.setItem("operations", JSON.stringify(updatedOps));
     setFormData({
       activo: "",
       fecha: "",
