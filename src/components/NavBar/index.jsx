@@ -17,7 +17,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="container-nav" aria-label="Main navigation">
+    <div className="container-nav" aria-label="Main navigation">
       <ul className="nav">
         {navLinks.map((link, index) => (
           <li key={index}>
@@ -25,8 +25,8 @@ const NavBar = () => {
               to={link.path}
               className={
                 location.pathname === link.path || activeLink === index
-                  ? "nav-link active"
-                  : "nav-link"
+                  ? "nav-clicled"
+                  : "nav-incliked"
               }
               onClick={() => handleLinkClick(index)}
               aria-current={
@@ -40,7 +40,7 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

@@ -43,7 +43,7 @@ const RegistrationsOperation = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 p-5">
       <h2 className="mb-4 text-center text-white">Registrar Operación</h2>
       <form onSubmit={handleSubmit} className="row g-3 styles-inputs">
         <div className="col-md-6">
