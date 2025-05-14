@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import DailyRentabiliy from "../../components/DailyRentability";
 import RoiRent from "../../components/RoiRent";
 import Quantiy_long_shorts from "../../components/Quantiy_long_shorts";
@@ -7,7 +7,6 @@ import Rent_Shares_Crypto from "../../components/Rent_Shares_Crypto";
 
 const Home = () => {
   return (
-    <>
       <div className="container-fluid">
         <Row className="m-4">
           <Col md={6}>
@@ -25,9 +24,14 @@ const Home = () => {
             <Quantiy_long_shorts />
           </Col>
         </Row>
-          <Rent_Shares_Crypto />
+        <Row>
+            <Col>
+    <Rent_Shares_Crypto />
+
+  </Col>
+
+        </Row>
       </div>
-    </>
   );
 };
 
