@@ -4,8 +4,10 @@ import "./RegistrationsOperation.css";
 import { useAddOperationMutation } from "../../fetching/firebaseApi";
 import { useDispatch } from "react-redux";
 import { setsOperations } from "../../stateGlobal/operationsSlice";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationsOperation = () => {
+  const navigation = useNavigate()
   const dispatch = useDispatch();
   const storedOps = JSON.parse(localStorage.getItem("operations")) || [];
   const [addOperation, { isLoading, isSuccess, isError, error }] =
@@ -40,7 +42,11 @@ const RegistrationsOperation = () => {
       ganancia: "",
       roi: "",
     });
-    window.location.reload();
+  sessionStorage.setItem("goToHomeAfterReload", "true");
+
+  setTimeout(() => {
+    window.location.reload(); 
+  }, 1500);
   };
 
   return (

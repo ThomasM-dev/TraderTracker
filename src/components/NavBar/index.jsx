@@ -1,6 +1,7 @@
-import "./NavBar.css";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "./NavBar.css";
+
 
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState(null);

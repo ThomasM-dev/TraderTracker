@@ -8,27 +8,33 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { useGetOperationsQuery } from "./fetching/firebaseApi";
 import { setsOperations } from "./stateGlobal/operationsSlice";
-
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
+    const navigate = useNavigate();
+
+  useEffect(() => {
+    const goToHome = sessionStorage.getItem("goToHomeAfterReload");
+    if (goToHome === "true") {
+      sessionStorage.removeItem("goToHomeAfterReload");
+      navigate("/");
+    }
+  }, []);
+
   const dispatch = useDispatch();
 
-  // Obtener datos desde Firebase
   const { data: firebaseData, isSuccess } = useGetOperationsQuery();
 
-  // Obtener datos desde localStorage
   const localOperations = JSON.parse(localStorage.getItem("operations"));
 
-  // 1. Cargar desde localStorage al iniciar
   useEffect(() => {
     if (localOperations && Array.isArray(localOperations)) {
       dispatch(setsOperations(localOperations));
     }
   }, [dispatch]);
 
-  // 2. Sincronizar si los datos en Firebase son distintos
   useEffect(() => {
     if (isSuccess && firebaseData && Array.isArray(firebaseData)) {
       const localString = JSON.stringify(localOperations);
