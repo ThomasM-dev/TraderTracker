@@ -61,23 +61,32 @@ const data = [
 const DailyRentability = () => {
   const Operations = useSelector((state) => state.operations);
 
+  // Agrupar operaciones por fecha
+  const rentDaily = Operations.reduce((acc, op) => {
+    const date = op.fecha;
+    if (!acc[date]) {
+      acc[date] = [];
+    }
+    acc[date].push(op);
+    return acc;
+  }, {});
+
+  // Transformar rentDaily a array para gráfico, sumando ganancias diarias
+  const chartData = Object.entries(rentDaily).map(([date, ops]) => {
+    const GananciaDiaria = ops.reduce((sum, op) => sum + op.ganancia, 0);
+    return { date, GananciaDiaria };
+  });
+
   return (
     <div className="daily-rentability mt-3 mb-5">
       <h2 className="text-center">Rentabilidad Diaria</h2>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={300}>
         <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          data={chartData}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="date" />
           <YAxis />
           <Tooltip
             contentStyle={{ backgroundColor: "#000", color: "#fff" }}
@@ -86,8 +95,14 @@ const DailyRentability = () => {
           />
           <Legend />
           <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="pv" fill="#838383" />
-          <Bar dataKey="uv" fill="white" />
+          <Bar dataKey="GananciaDiaria" fill="#fff">
+            {chartData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={entry.GananciaDiaria < 0 ? "#838383" : "white"}
+              />
+            ))}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>
