@@ -43,8 +43,9 @@ const RoiRent = () => {
             bottom: 5,
           }}
         >
-          <XAxis dataKey="name" />
-          <YAxis />
+       <XAxis dataKey="name" tick={{ fill: "#000" }} />
+
+        <YAxis tick={{ fill: "#fff" }}/>
           <Tooltip
             contentStyle={{ backgroundColor: "#000", color: "#fff" }}
             labelStyle={{ color: "#fff" }}
@@ -52,7 +53,7 @@ const RoiRent = () => {
           />
           <Legend fill="#000" />
           <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="ganancia">
+          <Bar dataKey="ganancia" name="Ganacia por op" fill="#fff">
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}

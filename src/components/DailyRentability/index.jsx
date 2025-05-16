@@ -86,8 +86,9 @@ const DailyRentability = () => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
+       <XAxis dataKey="date" tick={{ fill: "#000" }} />
+
+        <YAxis tick={{ fill: "#fff" }}/>
           <Tooltip
             contentStyle={{ backgroundColor: "#000", color: "#fff" }}
             labelStyle={{ color: "#fff" }}
@@ -95,7 +96,7 @@ const DailyRentability = () => {
           />
           <Legend />
           <ReferenceLine y={0} stroke="#000" />
-          <Bar dataKey="GananciaDiaria" fill="#fff">
+          <Bar dataKey="GananciaDiaria" name="Ganacia Diaria" fill="#fff">
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
