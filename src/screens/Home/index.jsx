@@ -4,7 +4,7 @@ import RoiRent from "../../components/RoiRent";
 import Quantiy_long_shorts from "../../components/Quantiy_long_shorts";
 import Rent_Long_Shorts from "../../components/Rent_Long_Shorts";
 import Quant_Shares_Crypto from "../../components/Quant_Shares_Crypto";
-
+import UnitRent_Shares_Crypto from "../../components/UnitRent_Shares_Crypto"
 const Home = () => {
   return (
     <div className="container-fluid">
@@ -27,6 +27,11 @@ const Home = () => {
       <Row>
         <Col>
           <Quant_Shares_Crypto />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <UnitRent_Shares_Crypto />
         </Col>
       </Row>
     </div>
